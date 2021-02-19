@@ -1,6 +1,7 @@
 package Lab2.Lab2;
 
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,5 +41,6 @@ public class RegistrationServlet extends HttpServlet {
         out.println("<a href=\"index.jsp\">Home</a>");
         out.println("</div>");
         out.println("</body></html>");
+
     }
 }

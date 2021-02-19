@@ -1,6 +1,7 @@
 package Lab2.Lab2;
 
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,8 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
+        Cookie[] cookies = request.getCookies();
+
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
         out.println("<div align=\"center\">");
@@ -30,6 +33,15 @@ public class LoginServlet extends HttpServlet {
         out.println("<a href=\"index.jsp\">Home</a>");
         out.println("</div>");
         out.println("</body></html>");
+
+        Cookie cookie = new Cookie(username,password);
+        response.addCookie(cookie);
+        cookie.setMaxAge(1800);
+        for (Cookie cook : cookies){
+            System.out.println(cook.getName());
+            System.out.println(cook.getValue());
+        }
+
 
     }
 }
